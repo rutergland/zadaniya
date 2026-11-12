@@ -1,0 +1,23 @@
+<h1>Породы собак</h1>
+
+<form method="get">
+    <label for="breeds">Породы</label>
+    <input id="breeds" name="breeds" value="{{ entered }}">
+    <button type="submit">Показать фотографии</button>
+</form>
+
+{% for name in unknown %}
+    <p>Порода {{ name }} не найдена.</p>
+{% endfor %}
+
+{% for photo in photos %}
+    <h2>{{ photo.breed }}</h2>
+    <img src="{{ photo.url }}" alt="Собака породы {{ photo.breed }}">
+{% endfor %}
+
+<h2>Все породы</h2>
+<ol>
+    {% for breed in all_breeds %}
+        <li>{{ breed }}</li>
+    {% endfor %}
+</ol>

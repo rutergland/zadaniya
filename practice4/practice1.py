@@ -1,13 +1,21 @@
 import requests
 
-response = requests.get("https://pokeapi.co/api/v2/pokemon?limit=20")
+response = requests.get(
+    "https://pokeapi.co/api/v2/pokemon?limit=20",
+    timeout=10,
+)
+response.raise_for_status()
 data = response.json()
 print("Список покемонов:")
 for pokemon in data["results"]:
     print(pokemon["name"])
-name = input("Имя покемона:").lower()
+name = input("Имя покемона:").strip().lower()
 
-response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{name}")
+response = requests.get(
+    f"https://pokeapi.co/api/v2/pokemon/{name}",
+    timeout=10,
+)
+response.raise_for_status()
 
 pokemon = response.json()
 
