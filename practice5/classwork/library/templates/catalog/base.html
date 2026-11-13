@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}Библиотека{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Библиотека</h1>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© {% now "Y" %} Библиотека. Автор: Александр</p>
+    </footer>
+
+</body>
+</html>

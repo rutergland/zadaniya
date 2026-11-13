@@ -3,6 +3,16 @@ import requests
 
 
 def index(request):
+    """Отображает страницу с фотографиями собак выбранных пород.
+    Получает список всех пород с Dog API. Из GET-параметра "breeds"
+    считывает породы, введённые пользователем (через запятую), проверяет
+    их наличие и для каждой существующей породы запрашивает случайное фото.
+    Результаты передаются в шаблон dog/index.html.
+    Args:
+        request (HttpRequest): Объект HTTP-запроса от Django.
+    Returns:
+        HttpResponse: Отрендеренная HTML-страница с фотографиями собак.
+    """
     response = requests.get(
         "https://dog.ceo/api/breeds/list/all",
         timeout=10,

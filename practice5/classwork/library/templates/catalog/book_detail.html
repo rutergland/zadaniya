@@ -1,0 +1,15 @@
+{% extends "catalog/base.html" %}
+{% load price_filters %}
+
+{% block title %}Big black catalog{% endblock %}
+
+{% block content %}
+    {% for book in books %}
+        <div class="book-card">
+            <h1>{{ book.title }}</h1>
+            <p>{{ book.author }}</p>
+            <p>{{ book.year }}</p>
+            <p>{{ book.price|format_price }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
